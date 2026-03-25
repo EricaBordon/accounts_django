@@ -11,4 +11,4 @@
 ## Día 25/03/2026
 - Creación del template login.html
 - Implementación del formulario
-- Validación básica de usuario
+- Validación básica de usuario.
