@@ -12,3 +12,4 @@
 - Creación del template login.html
 - Implementación del formulario
 - Validación básica de usuario.
+- Redireccion despues de login y cierre de sesion.

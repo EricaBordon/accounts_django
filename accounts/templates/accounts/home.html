@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #c53030;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bienvenido 🎉</h1>
+
+        <!-- Botón para cerrar sesión -->
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </div>
+
+</body>
+</html>

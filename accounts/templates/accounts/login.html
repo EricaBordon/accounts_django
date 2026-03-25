@@ -3,22 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+
+    <style>
+        /* Reset básico para evitar estilos raros del navegador */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fondo general de la página */
+        body {
+            font-family: Arial, sans-serif; /* tipo de letra */
+            background: linear-gradient(135deg, #667eea, #764ba2); /* degradado */
+            height: 100vh; /* ocupa toda la pantalla */
+            display: flex; /* permite centrar */
+            justify-content: center; /* centro horizontal */
+            align-items: center; /* centro vertical */
+        }
+
+        /* Contenedor del login */
+        .login-container {
+            background: white; /* fondo blanco */
+            padding: 30px;
+            border-radius: 10px; /* bordes redondeados */
+            width: 300px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* sombra */
+            text-align: center;
+        }
+
+        /* Título */
+        .login-container h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Inputs */
+        input {
+            width: 100%; /* ocupa todo el ancho */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Botón */
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #667eea; /* color principal */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Efecto hover */
+        button:hover {
+            background: #5a67d8;
+        }
+
+        /* Mensaje */
+        .mensaje {
+            margin-top: 15px;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>Iniciar sesión</h1>
 
-    <form method="post">
-        {% csrf_token %}
+    <div class="login-container">
+        <h1>Iniciar sesión</h1>
 
-        <label>Usuario:</label>
-        <input type="text" name="username"><br><br>
+        <!-- Formulario -->
+        <form method="post">
+            {% csrf_token %} <!-- seguridad de Django -->
 
-        <label>Contraseña:</label>
-        <input type="password" name="password"><br><br>
+            <!-- Campo usuario -->
+            <input type="text" name="username" placeholder="Usuario" required>
 
-        <button type="submit">Ingresar</button>
-    </form>
+            <!-- Campo contraseña -->
+            <input type="password" name="password" placeholder="Contraseña" required>
 
-    <p>{{ mensaje }}</p>
+            <!-- Botón -->
+            <button type="submit">Ingresar</button>
+        </form>
+
+        <!-- Mensaje dinámico desde Django -->
+        <p class="mensaje">{{ mensaje }}</p>
+    </div>
+
 </body>
 </html>
