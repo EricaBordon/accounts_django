@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #38ef7d;
+            border: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2ecc71;
+        }
+
+        .mensaje {
+            color: red;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Registro</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Usuario -->
+            <input type="text" name="username" placeholder="Usuario" required>
+
+            <!-- Contraseña -->
+            <input type="password" name="password" placeholder="Contraseña" required>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <!-- Mensaje -->
+        <p class="mensaje">{{ mensaje }}</p>
+
+        <!-- Volver al login -->
+        <a href="{% url 'login' %}">Volver al login</a>
+    </div>
+
+</body>
+</html>
